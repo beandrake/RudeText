@@ -1,0 +1,33 @@
+/*
+body {
+	margin: 0px
+}
+	*/
+
+.canvas {
+	position: relative;
+}
+
+.outline {
+	border: 40px solid black;
+	position: relative;
+}
+
+.monospace {
+	font-family: monospace, monospace;
+}
+
+.appear {
+  animation: fade-in 3s;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1.0;
+  }
+}
+
+
