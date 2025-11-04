@@ -7,6 +7,7 @@ import Input from './Input';
 function Question(props) {
 	
 	function getInput(){
+
 		if (props.inputReplacer) {
 			return <InputReplacer {...props} />;
 		} else if (props.inputSkipper) {

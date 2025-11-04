@@ -18,14 +18,14 @@ function App() {
 			<Question
 				prompt="Please tell me your favorite color."
 				inputReplacer={true}
-				replacement="red"
+				replacementText="red"
 				replaceOnType={true}
 				caseSensitive={true}
 			/>
 			<Question
 				prompt="Would you be willing to donate your soul to science?"
 				inputReplacer={true}
-				replacement="Yes, of course."
+				replacementText="Yes, of course."
 				replaceOnType={false}
 			/>
 		</div>

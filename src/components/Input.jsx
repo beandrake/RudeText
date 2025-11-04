@@ -11,10 +11,18 @@ function Input(props) {
 		//console.log(event.target.value);
 		let userInput = event.target.value;
 
+		if (props.changeHandler) {
+			userInput = props.changeHandler(event, text);
+		}
+
 		setText(userInput);
 	}
 
 	function handleSubmit(event) {
+		if (props.submissionHandler) {
+			props.submissionHandler(event, text, setText);
+		}
+		
 		//console.log(text);
 		setSubmitted(true);
 

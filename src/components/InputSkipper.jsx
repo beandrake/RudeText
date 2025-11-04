@@ -1,4 +1,5 @@
 import React from 'react';
+import Input from './Input';
 
 // InputSkipper is an input field that will randomly ignore characters that
 // get added, attempting to simulate input failures due to a broken keyboard,
@@ -9,13 +10,11 @@ import React from 'react';
 //
 function InputSkipper(props) {
 
-	const [text, setText] = React.useState("");
-	const [submitted, setSubmitted] = React.useState(false);
 	//const pityCounter = React.useRef(0);
 
-	function handleChange(event) {
-		let userInput = event.target.value;
+	function changeHandler(event, text) {
 		//console.log(event.target.value);
+		let userInput = event.target.value;
 
 		// random chance to skip each new character typed
 		if (text.length < userInput.length) {
@@ -32,34 +31,15 @@ function InputSkipper(props) {
 			}
 		}
 
-		setText(userInput);
-	}
-
-	function handleSubmit(event) {
-		//console.log(text);
-		setSubmitted(true);
-
-		// prevents default form submission behavior of refreshing page
-		event.preventDefault();
+		return userInput;
 	}
 
 
 	return (
-		<div>
-			<form onSubmit={handleSubmit}>
-				<input 
-					onChange={handleChange}
-					type='text'
-					placeholder=""
-					value={text}
-					disabled = {submitted}
-				/>
-				<button 
-					type="submit"
-					disabled = {submitted}
-				>Submit</button>
-			</form>
-		</div>
+		<Input
+			//{...props}
+			changeHandler={changeHandler}
+		/>
 	);
 }
 
