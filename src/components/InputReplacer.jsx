@@ -65,10 +65,10 @@ function InputReplacer(props) {
 
 		// replace user's characters with same number of fatedText characters
 		if (props.replaceOnType) {		
-			if (props.caseSensitive) {
-				userInput = _replaceWithUserCapitalization(userInput);
+			if (!props.caseSensitive) {
+				userInput = fatedText.slice(0, userInput.length);
 			} else {
-				userInput = fatedText.substring(0, userInput.length);
+				userInput = _replaceWithUserCapitalization(userInput);
 			}
 		} 
 
@@ -78,7 +78,20 @@ function InputReplacer(props) {
 
 	function submissionHandler(event, text, setText) {
 		// regardless of current text, replace with the complete fatedText
-		setText(fatedText);
+		let userInput = text;
+				
+		if (!props.caseSensitive) {
+			userInput = fatedText;
+		} else {
+			// make userInput.length >= fatedText.length
+			// A bit of a hack, but it keeps the replacement function simpler.
+			while (userInput.length < fatedText.length) {
+				userInput += ".";
+			}
+			userInput = _replaceWithUserCapitalization(userInput);
+		}
+		
+		setText(userInput);
 	}
 
 
