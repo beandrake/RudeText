@@ -7,15 +7,20 @@ function QuestionSeries(props) {
 	
 	const [currentQuestion, setCurrentQuestion] = React.useState(0);
 
-	// NEXT TO DO ITEM:
-	//		Submitted questions send data back to QuestionSeries
-	//		So that the next question can appear
+	function concludeQuestion() {
+		setCurrentQuestion(currentQuestion+ 1);
+	}
 
 	function displayQuestion(questionData) {
 		//console.log(questionData);
+		if (questionData.key > currentQuestion) {
+			return;
+		}
+		
 		return (
 			<Question
 				{...questionData}
+				concludeQuestion={concludeQuestion}
 			/>
 		);
 	}

@@ -24,6 +24,7 @@ function Input(props) {
 		}
 		
 		//console.log(text);
+		props.concludeQuestion();
 		setSubmitted(true);
 
 		// prevents default form submission behavior of refreshing page
@@ -41,10 +42,12 @@ function Input(props) {
 					value={text}
 					disabled = {submitted}
 				/>
-				<button 
-					type="submit"
-					disabled = {submitted}
-				>Submit</button>
+				{!submitted && 
+					<button 
+						type="submit"
+						disabled = {submitted}
+					>Submit</button>
+				}
 			</form>
 		</div>
 	);

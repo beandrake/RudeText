@@ -100,6 +100,7 @@ function InputReplacer(props) {
 			//{...props}
 			changeHandler={changeHandler}
 			submissionHandler={submissionHandler}
+			concludeQuestion={props.concludeQuestion}
 		/>
 	);
 }
