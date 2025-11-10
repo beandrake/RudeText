@@ -31,6 +31,16 @@ function Input(props) {
 		event.preventDefault();
 	}
 
+	// When input is first rendered, put cursor in it.
+	// Could also do this by just giving input the attribute autoFocus={true}
+	React.useEffect( 
+		() => {
+			const myInputField = document.getElementById(props.questionSeriesName + props.id);
+			myInputField.focus();
+		},
+		[] // do on mount
+	)
+
 
 	return (
 		<div>
@@ -40,7 +50,9 @@ function Input(props) {
 					type='text'
 					placeholder=""
 					value={text}
-					disabled = {submitted}
+					disabled={submitted}
+					autoComplete="off"
+					id={props.questionSeriesName + props.id}
 				/>
 				{!submitted && 
 					<button 

@@ -37,9 +37,8 @@ function InputSkipper(props) {
 
 	return (
 		<Input
-			//{...props}
+			{...props}
 			changeHandler={changeHandler}
-			concludeQuestion={props.concludeQuestion}
 		/>
 	);
 }

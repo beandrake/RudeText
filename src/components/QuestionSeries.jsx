@@ -13,12 +13,14 @@ function QuestionSeries(props) {
 
 	function displayQuestion(questionData) {
 		//console.log(questionData);
-		if (questionData.key > currentQuestion) {
+		if (questionData.id > currentQuestion) {
 			return;
 		}
-		
+
 		return (
 			<Question
+				key={questionData.id}
+				questionSeriesName={props.questionSeriesName}
 				{...questionData}
 				concludeQuestion={concludeQuestion}
 			/>

@@ -7,7 +7,9 @@ function App() {
 
 	return (
 		<div>
-			<QuestionSeries />
+			<QuestionSeries
+				questionSeriesName="bobbus"
+			/>
 		</div>
 	);
 }

@@ -1,16 +1,16 @@
 let questionList = [
 	{
-		key: 0,
+		id: 0,
 		prompt: "Are you ready to play?",
 	},
 	{
-		key: 1,
+		id: 1,
 		prompt: "Please tell me your name.",
 		inputSkipper: true,
 		percentChange: 10,
 	},
 	{
-		key: 2,
+		id: 2,
 		prompt: "Please tell me your favorite color.",
 		inputReplacer: true,
 		replacementText: "red",
@@ -18,7 +18,7 @@ let questionList = [
 		caseSensitive: true,
 	},
 	{
-		key: 3,
+		id: 3,
 		prompt: "Would you be willing to donate your soul to science?",
 		inputReplacer: true,
 		replacementText: "Yes, of course.",
