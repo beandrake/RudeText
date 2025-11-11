@@ -7,22 +7,20 @@ function QuestionSeries(props) {
 	
 	const [currentQuestion, setCurrentQuestion] = React.useState(0);
 
-	function concludeQuestion() {
-		setCurrentQuestion(currentQuestion+ 1);
+	function submissionHandler() {
+		setCurrentQuestion(currentQuestion+1);
 	}
 
 	function displayQuestion(questionData) {
 		//console.log(questionData);
-		if (questionData.id > currentQuestion) {
+		if (questionData.key > currentQuestion) {
 			return;
 		}
 
 		return (
 			<Question
-				key={questionData.id}
-				questionSeriesName={props.questionSeriesName}
 				{...questionData}
-				concludeQuestion={concludeQuestion}
+				submissionHandler={submissionHandler}
 			/>
 		);
 	}

@@ -92,12 +92,15 @@ function InputReplacer(props) {
 		}
 		
 		setText(userInput);
+		// after all that, do any other submission handling
+		if (props.submissionHandler) {
+			props.submissionHandler(event, text, setText);
+		}
 	}
 
 
 	return (
 		<Input
-			{...props}
 			changeHandler={changeHandler}
 			submissionHandler={submissionHandler}
 		/>
