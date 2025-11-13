@@ -1,10 +1,12 @@
 import React from 'react';
+import textIsOverflowing from '../util/textIsOverflowing'
 
 // Normal input that records when it has been submitted.
 function Input(props) {
 
 	const [text, setText] = React.useState("");
 	const [submitted, setSubmitted] = React.useState(false);
+	const inputWidth = React.useRef(null);
 
 	function handleChange(event) {
 		let userInput = event.target.value;
@@ -12,6 +14,16 @@ function Input(props) {
 		if (props.changeHandler) {
 			userInput = props.changeHandler(event, text);
 		}
+
+		// detect text overflow!
+		console.log( textIsOverflowing(event.target) );
+		if ( textIsOverflowing(event.target) ) {
+			console.log(inputWidth.current + ', ' + event.target.clientWidth);
+			inputWidth.current = event.target.clientWidth + 40;			
+		}else {
+			inputWidth.current -= 1;
+		}
+
 
 		setText(userInput);
 	}
@@ -38,6 +50,7 @@ function Input(props) {
 					disabled={submitted}
 					autoComplete="off"
 					autoFocus={true}
+					style={{width: inputWidth.current}}
 				/>
 				{!submitted && 
 					<button 
