@@ -4,7 +4,7 @@ Exploring React functionality by making inputs that disobey the user.
 ## Windows Instructions:
 1. Make a local clone of this repository via your preferred method.
 
-2. Install dependencies by using the following command from inside the keeper-app directory:
+2. Install dependencies by using the following command from inside the RudeText directory:
 
        npm install
 
